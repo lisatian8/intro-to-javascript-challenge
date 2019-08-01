@@ -24,6 +24,7 @@ var tableData = data;
  var shape=[];
  var state=[];
 
+ var newTableData = {};
 
 
 
@@ -49,4 +50,23 @@ console.log(shape);
 console.log(state);
 
 console.log(city.length);
+//worked: newTableData = tableData;
+newTableData = tableData;
+console.log(newTableData);
 
+var cityMapped = newTableData.map(newTableDataRow => newTableDataRow.city);
+var datetimeMapped = newTableData.map(newTableDataRow => newTableDataRow.datetime);
+
+console.log(cityMapped);
+console.log(datetimeMapped);
+
+// Create a custom filtering function
+function selectCity(observation) {
+  return observation.city === 'benton';
+}
+
+// filter() uses the custom function as its argument
+var cityNewTableData= newTableData.filter(selectCity);
+
+// Test
+console.log(cityNewTableData);
